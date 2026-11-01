@@ -1,0 +1,34 @@
+{
+  "name": "celebration-event-planner",
+  "version": "1.0.0",
+  "description": "A modern, responsive, full-stack celebration and event planning web application with budget tracking, guest management, checklists, and calendar views.",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node test/server.test.js",
+    "seed": "node -e \"require('./server/seedData').loadInitialSeed(true)\""
+  },
+  "keywords": [
+    "event-planner",
+    "celebration",
+    "birthday",
+    "wedding",
+    "anniversary",
+    "party",
+    "budget-planner",
+    "guest-manager",
+    "checklist",
+    "calendar",
+    "full-stack",
+    "express",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
