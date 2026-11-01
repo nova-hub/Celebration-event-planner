@@ -13,8 +13,8 @@
       "status": "planning",
       "themeColor": "#ec4899",
       "notes": "Dress code: Midnight black-tie with botanical accents. Valet service arranged.",
-      "createdAt": "2026-11-01T15:29:34.243Z",
-      "updatedAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z",
+      "updatedAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "ev-birthday-02",
@@ -29,8 +29,8 @@
       "status": "confirmed",
       "themeColor": "#a855f7",
       "notes": "Surprise video tribute planned at 21:30! Signature cocktail: Violet Mirage.",
-      "createdAt": "2026-11-01T15:29:34.243Z",
-      "updatedAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z",
+      "updatedAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "ev-anniversary-03",
@@ -45,8 +45,8 @@
       "status": "planning",
       "themeColor": "#f472b6",
       "notes": "Archival family slide show to be projected on the grand marble fireplace.",
-      "createdAt": "2026-11-01T15:29:34.243Z",
-      "updatedAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z",
+      "updatedAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "ev-party-04",
@@ -61,8 +61,8 @@
       "status": "planning",
       "themeColor": "#c084fc",
       "notes": "Masks mandatory at entrance. Glow wristbands for VIP balcony.",
-      "createdAt": "2026-11-01T15:29:34.243Z",
-      "updatedAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z",
+      "updatedAt": "2026-11-01T15:35:04.795Z"
     }
   ],
   "expenses": [
@@ -75,7 +75,7 @@
       "status": "paid",
       "date": "2026-10-22",
       "notes": "Deposit and full day reservation confirmed",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-w-2",
@@ -86,7 +86,7 @@
       "status": "pending",
       "date": "2026-11-11",
       "notes": "5-course plated dinner for 85 guests",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-w-3",
@@ -97,7 +97,7 @@
       "status": "paid",
       "date": "2026-10-29",
       "notes": "Fresh orchids, white wisteria, and blush roses",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-w-4",
@@ -108,7 +108,7 @@
       "status": "pending",
       "date": "2026-11-15",
       "notes": "10 hours coverage + raw 4k footage",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-b-1",
@@ -119,7 +119,7 @@
       "status": "paid",
       "date": "2026-10-27",
       "notes": "Includes rooftop access and cleaning fee",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-b-2",
@@ -130,7 +130,7 @@
       "status": "paid",
       "date": "2026-10-30",
       "notes": "Salted caramel & dark chocolate truffle",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-b-3",
@@ -141,7 +141,7 @@
       "status": "pending",
       "date": "2026-11-06",
       "notes": "Sound equipment & lighting package included",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-b-4",
@@ -152,7 +152,7 @@
       "status": "pending",
       "date": "2026-11-07",
       "notes": "Custom mocktails + cocktail menu",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-a-1",
@@ -163,7 +163,7 @@
       "status": "paid",
       "date": "2026-10-20",
       "notes": "Historic estate private garden access",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-a-2",
@@ -174,7 +174,7 @@
       "status": "pending",
       "date": "2026-11-21",
       "notes": "Classical & romantic pop arrangements",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-p-1",
@@ -185,7 +185,7 @@
       "status": "paid",
       "date": "2026-10-25",
       "notes": "Security staff included",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "exp-p-2",
@@ -196,7 +196,7 @@
       "status": "pending",
       "date": "2026-12-01",
       "notes": "Includes light operator for the night",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     }
   ],
   "guests": [
@@ -212,7 +212,7 @@
       "tableGroup": "Table 1 - Family VIP",
       "invitationSent": true,
       "notes": "Maid of honor",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-w-2",
@@ -226,7 +226,7 @@
       "tableGroup": "Table 1 - Family VIP",
       "invitationSent": true,
       "notes": "Best man",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-w-3",
@@ -240,7 +240,7 @@
       "tableGroup": "Table 3 - University Colleagues",
       "invitationSent": true,
       "notes": "Awaiting flight confirmation",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-w-4",
@@ -254,7 +254,7 @@
       "tableGroup": "Table 4 - Friends",
       "invitationSent": true,
       "notes": "Overseas conference",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-b-1",
@@ -268,7 +268,7 @@
       "tableGroup": "Lounge Area A",
       "invitationSent": true,
       "notes": "Bringing Polaroid camera for memory book",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-b-2",
@@ -282,7 +282,7 @@
       "tableGroup": "DJ Booth Section",
       "invitationSent": true,
       "notes": "Helping with audio playlist",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-b-3",
@@ -296,7 +296,7 @@
       "tableGroup": "Lounge Area B",
       "invitationSent": true,
       "notes": "Following up this Friday",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-a-1",
@@ -310,7 +310,7 @@
       "tableGroup": "Honorary Table",
       "invitationSent": true,
       "notes": "Wheelchair access requested at entrance",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "gst-p-1",
@@ -324,7 +324,7 @@
       "tableGroup": "VIP Table 1",
       "invitationSent": true,
       "notes": "VIP Pass holder",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     }
   ],
   "tasks": [
@@ -338,7 +338,7 @@
       "completed": true,
       "assignedTo": "Elena",
       "notes": "Printed on soft rose gold cardstock",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-w-2",
@@ -350,7 +350,7 @@
       "completed": false,
       "assignedTo": "Marcus",
       "notes": "Florist arriving at 11:00 AM on wedding day",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-w-3",
@@ -362,7 +362,7 @@
       "completed": false,
       "assignedTo": "Elena",
       "notes": "Need 85 plates + 4 vendor meals",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-w-4",
@@ -374,7 +374,7 @@
       "completed": true,
       "assignedTo": "Elena & Marcus",
       "notes": "Both outfits pressed and ready",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-w-5",
@@ -386,7 +386,7 @@
       "completed": false,
       "assignedTo": "Victoria (Maid of Honor)",
       "notes": "Lavender & vanilla hand-poured candles",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-b-1",
@@ -398,7 +398,7 @@
       "completed": false,
       "assignedTo": "Maya",
       "notes": "Keep cake refrigerated until 21:00",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-b-2",
@@ -410,7 +410,7 @@
       "completed": true,
       "assignedTo": "Julian",
       "notes": "90s R&B, modern disco house, synthwave",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-b-3",
@@ -422,7 +422,7 @@
       "completed": false,
       "assignedTo": "Lucas",
       "notes": "Neon sign: \"Forever 30 & Fabulous\"",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-a-1",
@@ -434,7 +434,7 @@
       "completed": false,
       "assignedTo": "Daughter Sarah",
       "notes": "Format into 1080p MP4 file on flash drive",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-a-2",
@@ -446,7 +446,7 @@
       "completed": false,
       "assignedTo": "Marcus",
       "notes": "Select 1999 vintage champagne toast",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     },
     {
       "id": "tsk-p-1",
@@ -458,7 +458,7 @@
       "completed": true,
       "assignedTo": "Zane",
       "notes": "Delivered and inspected",
-      "createdAt": "2026-11-01T15:29:34.243Z"
+      "createdAt": "2026-11-01T15:35:04.795Z"
     }
   ]
 }
