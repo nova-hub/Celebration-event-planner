@@ -91,21 +91,384 @@ const App = {
     }, 4000);
   },
 
-  // API Client
+  // Local storage fallback for static hosts (e.g. Netlify)
+  useLocalStorage: false,
+
+  getDefaultSeed() {
+    const now = new Date();
+    const addDays = (d) => {
+      const target = new Date(now);
+      target.setDate(target.getDate() + d);
+      return target.toISOString().split('T')[0];
+    };
+
+    return {
+      events: [
+        {
+          id: 'ev-wedding-01',
+          title: 'Elena & Marcus Luxe Garden Wedding',
+          category: 'wedding',
+          date: addDays(14),
+          time: '16:30',
+          venue: 'The Grand Wisteria Pavilion & Conservatory, Napa Valley',
+          description: 'An elegant twilight wedding ceremony followed by a black-tie champagne dinner, live jazz quartet, and floral installation under the stars.',
+          targetBudget: 18500,
+          coverTheme: 'purple-pink',
+          status: 'planning',
+          themeColor: '#ec4899',
+          notes: 'Dress code: Midnight black-tie with botanical accents. Valet service arranged.'
+        },
+        {
+          id: 'ev-birthday-02',
+          title: 'Julian’s 30th Neon & Velvet Birthday Soiree',
+          category: 'birthday',
+          date: addDays(6),
+          time: '20:00',
+          venue: 'Skyline Glass Penthouse Loft, Downtown',
+          description: 'Celebrating the big 3-0 with custom craft cocktails, DJ set, customized dessert bar, and interactive photo booth.',
+          targetBudget: 4500,
+          coverTheme: 'purple',
+          status: 'confirmed',
+          themeColor: '#a855f7',
+          notes: 'Surprise video tribute planned at 21:30! Signature cocktail: Violet Mirage.'
+        },
+        {
+          id: 'ev-anniversary-03',
+          title: 'Golden 25th Silver-Luxe Wedding Anniversary',
+          category: 'anniversary',
+          date: addDays(28),
+          time: '18:00',
+          venue: 'Château Belleview Ballroom & Terrace',
+          description: 'Renewing vows and celebrating 25 years of devotion with close family and lifelong friends over a 5-course gourmet tasting menu.',
+          targetBudget: 9000,
+          coverTheme: 'soft-pink',
+          status: 'planning',
+          themeColor: '#f472b6',
+          notes: 'Archival family slide show to be projected on the grand marble fireplace.'
+        },
+        {
+          id: 'ev-party-04',
+          title: 'Obsidian Midnight Rooftop Masquerade Party',
+          category: 'party',
+          date: addDays(35),
+          time: '21:00',
+          venue: 'Nebula Rooftop Lounge & Solarium',
+          description: 'An immersive Venetian masquerade evening with dramatic lighting, deep house music, illuminated ice sculptures, and champagne fountains.',
+          targetBudget: 6200,
+          coverTheme: 'purple-pink',
+          status: 'planning',
+          themeColor: '#c084fc',
+          notes: 'Masks mandatory at entrance. Glow wristbands for VIP balcony.'
+        }
+      ],
+      expenses: [
+        { id: 'exp-w-1', eventId: 'ev-wedding-01', title: 'Venue Rental & Glass Marquee', category: 'Venue', amount: 6500, status: 'paid', date: addDays(-10), notes: 'Deposit and full day reservation confirmed' },
+        { id: 'exp-w-2', eventId: 'ev-wedding-01', title: 'Fine Dining Catering & French Champagne', category: 'Catering', amount: 5200, status: 'pending', date: addDays(10), notes: '5-course plated dinner for 85 guests' },
+        { id: 'exp-w-3', eventId: 'ev-wedding-01', title: 'Luxe Floral Arch & Table Centerpieces', category: 'Decor', amount: 2800, status: 'paid', date: addDays(-3), notes: 'Fresh orchids, white wisteria, and blush roses' },
+        { id: 'exp-b-1', eventId: 'ev-birthday-02', title: 'Skyline Penthouse Venue Fee', category: 'Venue', amount: 1800, status: 'paid', date: addDays(-5), notes: 'Includes rooftop access and cleaning fee' },
+        { id: 'exp-b-2', eventId: 'ev-birthday-02', title: 'Custom 3-Tier Obsidian & Violet Cake', category: 'Cake', amount: 450, status: 'paid', date: addDays(-2), notes: 'Salted caramel & dark chocolate truffle' },
+        { id: 'exp-a-1', eventId: 'ev-anniversary-03', title: 'Château Ballroom Booking', category: 'Venue', amount: 3800, status: 'paid', date: addDays(-12), notes: 'Historic estate private garden access' },
+        { id: 'exp-p-1', eventId: 'ev-party-04', title: 'Nebula Rooftop Exclusive Rental', category: 'Venue', amount: 3200, status: 'paid', date: addDays(-7), notes: 'Security staff included' }
+      ],
+      guests: [
+        { id: 'gst-w-1', eventId: 'ev-wedding-01', name: 'Victoria Hawthorne', email: 'victoria.h@luxe.org', phone: '+1 (555) 234-8901', rsvpStatus: 'attending', plusOnes: 1, dietaryRestrictions: 'Gluten-Free', tableGroup: 'Table 1 - Family VIP', invitationSent: true },
+        { id: 'gst-w-2', eventId: 'ev-wedding-01', name: 'Alexander Sterling', email: 'alex.sterling@apex.io', phone: '+1 (555) 345-6789', rsvpStatus: 'attending', plusOnes: 1, dietaryRestrictions: 'Vegetarian', tableGroup: 'Table 1 - Family VIP', invitationSent: true },
+        { id: 'gst-b-1', eventId: 'ev-birthday-02', name: 'Maya Lin', email: 'maya.lin@design.co', phone: '+1 (555) 456-7890', rsvpStatus: 'attending', plusOnes: 1, dietaryRestrictions: 'Vegan', tableGroup: 'Lounge Area A', invitationSent: true },
+        { id: 'gst-a-1', eventId: 'ev-anniversary-03', name: 'Grandmother Alice Sterling', email: 'alice.sterling@family.com', phone: '+1 (555) 789-0123', rsvpStatus: 'attending', plusOnes: 0, dietaryRestrictions: 'Low Sodium', tableGroup: 'Honorary Table', invitationSent: true },
+        { id: 'gst-p-1', eventId: 'ev-party-04', name: 'Zane Vance', email: 'zane.vance@tech.co', phone: '+1 (555) 890-4321', rsvpStatus: 'attending', plusOnes: 2, dietaryRestrictions: 'None', tableGroup: 'VIP Table 1', invitationSent: true }
+      ],
+      tasks: [
+        { id: 'tsk-w-1', eventId: 'ev-wedding-01', title: 'Finalize seating chart & table namecards', category: 'Invitations', dueDate: addDays(4), priority: 'high', completed: true, assignedTo: 'Elena' },
+        { id: 'tsk-w-2', eventId: 'ev-wedding-01', title: 'Confirm floral delivery and arch setup timing', category: 'Decor', dueDate: addDays(7), priority: 'high', completed: false, assignedTo: 'Marcus' },
+        { id: 'tsk-b-1', eventId: 'ev-birthday-02', title: 'Pick up 3-tier cake from patisserie at 2 PM', category: 'Food & Drink', dueDate: addDays(6), priority: 'high', completed: false, assignedTo: 'Maya' },
+        { id: 'tsk-a-1', eventId: 'ev-anniversary-03', title: 'Compile 25-year family photo slideshow and video', category: 'Entertainment', dueDate: addDays(15), priority: 'medium', completed: false, assignedTo: 'Sarah' },
+        { id: 'tsk-p-1', eventId: 'ev-party-04', title: 'Order 150 Venetian masquerade masks for guest arrivals', category: 'Decor', dueDate: addDays(12), priority: 'high', completed: true, assignedTo: 'Zane' }
+      ]
+    };
+  },
+
+  getLocalDb() {
+    try {
+      const raw = localStorage.getItem('celebration_planner_db');
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    const fresh = this.getDefaultSeed();
+    this.saveLocalDb(fresh);
+    return fresh;
+  },
+
+  saveLocalDb(db) {
+    try {
+      localStorage.setItem('celebration_planner_db', JSON.stringify(db));
+    } catch (e) {}
+  },
+
+  handleLocalApi(endpoint, options = {}) {
+    const db = this.getLocalDb();
+    const method = (options.method || 'GET').toUpperCase();
+    const body = options.body ? JSON.parse(options.body) : {};
+
+    // Match /events or /events?search=...
+    if (endpoint.startsWith('/events') && !endpoint.includes('/', 8)) {
+      if (method === 'GET') {
+        const urlParams = new URLSearchParams(endpoint.split('?')[1] || '');
+        const q = (urlParams.get('search') || '').toLowerCase();
+        let list = db.events.map(ev => {
+          const exps = db.expenses.filter(e => e.eventId === ev.id);
+          const gsts = db.guests.filter(g => g.eventId === ev.id);
+          const tsks = db.tasks.filter(t => t.eventId === ev.id);
+          const spent = exps.reduce((s, e) => s + (Number(e.amount) || 0), 0);
+          const attending = gsts.filter(g => g.rsvpStatus === 'attending').reduce((s, g) => s + 1 + (Number(g.plusOnes) || 0), 0);
+          const done = tsks.filter(t => t.completed).length;
+
+          return {
+            ...ev,
+            stats: {
+              totalSpent: spent,
+              paidSpent: exps.filter(e => e.status === 'paid').reduce((s, e) => s + (Number(e.amount) || 0), 0),
+              attendingCount: attending,
+              totalGuests: gsts.length,
+              totalTasks: tsks.length,
+              completedTasks: done,
+              taskProgress: tsks.length > 0 ? Math.round((done / tsks.length) * 100) : 0
+            }
+          };
+        });
+
+        if (q) {
+          list = list.filter(e => e.title.toLowerCase().includes(q) || (e.venue && e.venue.toLowerCase().includes(q)));
+        }
+        return { success: true, count: list.length, data: list };
+      }
+
+      if (method === 'POST') {
+        const newEv = {
+          id: 'ev_' + Date.now(),
+          ...body,
+          createdAt: new Date().toISOString()
+        };
+        db.events.unshift(newEv);
+        this.saveLocalDb(db);
+        return { success: true, data: newEv };
+      }
+    }
+
+    // Match /events/:id
+    const evMatch = endpoint.match(/^\/events\/([^\/\?]+)$/);
+    if (evMatch) {
+      const id = evMatch[1];
+      if (method === 'GET') {
+        const ev = db.events.find(e => e.id === id);
+        if (!ev) throw new Error('Event not found');
+        const exps = db.expenses.filter(e => e.eventId === id);
+        const gsts = db.guests.filter(g => g.eventId === id);
+        const tsks = db.tasks.filter(t => t.eventId === id);
+        const spent = exps.reduce((s, e) => s + (Number(e.amount) || 0), 0);
+        const done = tsks.filter(t => t.completed).length;
+
+        return {
+          success: true,
+          data: {
+            ...ev,
+            expenses: exps,
+            guests: gsts,
+            tasks: tsks,
+            stats: {
+              targetBudget: Number(ev.targetBudget) || 0,
+              totalSpent: spent,
+              paidSpent: exps.filter(e => e.status === 'paid').reduce((s, e) => s + (Number(e.amount) || 0), 0),
+              attendingCount: gsts.filter(g => g.rsvpStatus === 'attending').reduce((s, g) => s + 1 + (Number(g.plusOnes) || 0), 0),
+              pendingGuests: gsts.filter(g => g.rsvpStatus === 'pending').length,
+              totalGuests: gsts.length,
+              totalTasks: tsks.length,
+              completedTasks: done,
+              taskProgress: tsks.length > 0 ? Math.round((done / tsks.length) * 100) : 0,
+              budgetUsedPercentage: (Number(ev.targetBudget) || 0) > 0 ? Math.round((spent / Number(ev.targetBudget)) * 100) : 0
+            }
+          }
+        };
+      }
+
+      if (method === 'PUT') {
+        const idx = db.events.findIndex(e => e.id === id);
+        if (idx !== -1) {
+          db.events[idx] = { ...db.events[idx], ...body, updatedAt: new Date().toISOString() };
+          this.saveLocalDb(db);
+          return { success: true, data: db.events[idx] };
+        }
+      }
+
+      if (method === 'DELETE') {
+        db.events = db.events.filter(e => e.id !== id);
+        db.expenses = db.expenses.filter(e => e.eventId !== id);
+        db.guests = db.guests.filter(g => g.eventId !== id);
+        db.tasks = db.tasks.filter(t => t.eventId !== id);
+        this.saveLocalDb(db);
+        return { success: true };
+      }
+    }
+
+    // Match /expenses
+    if (endpoint === '/expenses' && method === 'POST') {
+      const newExp = { id: 'exp_' + Date.now(), ...body };
+      db.expenses.push(newExp);
+      this.saveLocalDb(db);
+      return { success: true, data: newExp };
+    }
+    const expMatch = endpoint.match(/^\/expenses\/([^\/\?]+)$/);
+    if (expMatch) {
+      const id = expMatch[1];
+      if (method === 'PUT') {
+        const idx = db.expenses.findIndex(e => e.id === id);
+        if (idx !== -1) {
+          db.expenses[idx] = { ...db.expenses[idx], ...body };
+          this.saveLocalDb(db);
+          return { success: true, data: db.expenses[idx] };
+        }
+      }
+      if (method === 'DELETE') {
+        db.expenses = db.expenses.filter(e => e.id !== id);
+        this.saveLocalDb(db);
+        return { success: true };
+      }
+    }
+
+    // Match /guests
+    if (endpoint === '/guests' && method === 'POST') {
+      const newGst = { id: 'gst_' + Date.now(), ...body };
+      db.guests.push(newGst);
+      this.saveLocalDb(db);
+      return { success: true, data: newGst };
+    }
+    const gstMatch = endpoint.match(/^\/guests\/([^\/\?]+)$/);
+    if (gstMatch) {
+      const id = gstMatch[1];
+      if (method === 'PUT') {
+        const idx = db.guests.findIndex(g => g.id === id);
+        if (idx !== -1) {
+          db.guests[idx] = { ...db.guests[idx], ...body };
+          this.saveLocalDb(db);
+          return { success: true, data: db.guests[idx] };
+        }
+      }
+      if (method === 'DELETE') {
+        db.guests = db.guests.filter(g => g.id !== id);
+        this.saveLocalDb(db);
+        return { success: true };
+      }
+    }
+    const rsvpMatch = endpoint.match(/^\/guests\/([^\/\?]+)\/rsvp$/);
+    if (rsvpMatch && method === 'PATCH') {
+      const id = rsvpMatch[1];
+      const idx = db.guests.findIndex(g => g.id === id);
+      if (idx !== -1) {
+        db.guests[idx].rsvpStatus = body.rsvpStatus;
+        this.saveLocalDb(db);
+        return { success: true, data: db.guests[idx] };
+      }
+    }
+
+    // Match /tasks
+    if (endpoint === '/tasks' && method === 'POST') {
+      const newTsk = { id: 'tsk_' + Date.now(), completed: false, ...body };
+      db.tasks.push(newTsk);
+      this.saveLocalDb(db);
+      return { success: true, data: newTsk };
+    }
+    const tskMatch = endpoint.match(/^\/tasks\/([^\/\?]+)$/);
+    if (tskMatch) {
+      const id = tskMatch[1];
+      if (method === 'PUT') {
+        const idx = db.tasks.findIndex(t => t.id === id);
+        if (idx !== -1) {
+          db.tasks[idx] = { ...db.tasks[idx], ...body };
+          this.saveLocalDb(db);
+          return { success: true, data: db.tasks[idx] };
+        }
+      }
+      if (method === 'DELETE') {
+        db.tasks = db.tasks.filter(t => t.id !== id);
+        this.saveLocalDb(db);
+        return { success: true };
+      }
+    }
+    const toggleMatch = endpoint.match(/^\/tasks\/([^\/\?]+)\/toggle$/);
+    if (toggleMatch && method === 'PATCH') {
+      const id = toggleMatch[1];
+      const idx = db.tasks.findIndex(t => t.id === id);
+      if (idx !== -1) {
+        db.tasks[idx].completed = !db.tasks[idx].completed;
+        this.saveLocalDb(db);
+        return { success: true, message: `Task marked as ${db.tasks[idx].completed ? 'completed' : 'pending'}`, data: db.tasks[idx] };
+      }
+    }
+
+    // Match /stats
+    if (endpoint === '/stats') {
+      const totalEvents = db.events.length;
+      const totalTargetBudget = db.events.reduce((s, e) => s + (Number(e.targetBudget) || 0), 0);
+      const totalActualSpent = db.expenses.reduce((s, e) => s + (Number(e.amount) || 0), 0);
+      const totalAttendingGuests = db.guests.filter(g => g.rsvpStatus === 'attending').reduce((s, g) => s + 1 + (Number(g.plusOnes) || 0), 0);
+      const completedTasks = db.tasks.filter(t => t.completed).length;
+
+      return {
+        success: true,
+        data: {
+          overview: {
+            totalEvents,
+            upcomingCount: totalEvents,
+            pastCount: 0,
+            totalTargetBudget,
+            totalActualSpent,
+            totalGuests: db.guests.length,
+            totalAttendingGuests,
+            totalPendingGuests: db.guests.filter(g => g.rsvpStatus === 'pending').length,
+            totalTasks: db.tasks.length,
+            completedTasks,
+            taskCompletionRate: db.tasks.length > 0 ? Math.round((completedTasks / db.tasks.length) * 100) : 0
+          },
+          categoryCounts: {
+            birthday: db.events.filter(e => e.category === 'birthday').length,
+            wedding: db.events.filter(e => e.category === 'wedding').length,
+            anniversary: db.events.filter(e => e.category === 'anniversary').length,
+            party: db.events.filter(e => e.category === 'party').length
+          }
+        }
+      };
+    }
+
+    if (endpoint === '/stats/seed' && method === 'POST') {
+      const fresh = this.getDefaultSeed();
+      this.saveLocalDb(fresh);
+      return { success: true, message: 'Seed restored' };
+    }
+
+    return { success: true };
+  },
+
+  // API Client with automatic static host fallback
   async api(endpoint, options = {}) {
+    if (this.useLocalStorage) {
+      return this.handleLocalApi(endpoint, options);
+    }
+
     try {
       const res = await fetch(`/api${endpoint}`, {
         headers: { 'Content-Type': 'application/json' },
         ...options
       });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message || 'Request failed');
+      const contentType = res.headers.get('content-type') || '';
+      if (!res.ok || !contentType.includes('application/json')) {
+        // Fall back to local storage if running on static CDN host like Netlify
+        console.warn('API returned non-JSON, switching to local store.');
+        this.useLocalStorage = true;
+        return this.handleLocalApi(endpoint, options);
       }
-      return data;
+      return await res.json();
     } catch (err) {
-      console.error(`API Error [${endpoint}]:`, err);
-      throw err;
+      console.warn('Cannot reach backend server, switching to local store:', err);
+      this.useLocalStorage = true;
+      return this.handleLocalApi(endpoint, options);
     }
   },
 
